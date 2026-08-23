@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Deletion Request</title>
+    <meta
+      name="description"
+      content="Request the deletion of your account and associated data for our Google Play applications."
+    />
+    <meta name="author" content="Fouad El Azbi" />
+    <meta name="publisher" content="Foxcraft Candide" />
+    <meta name="copyright" content="© 2026 Foxcraft Candide. All rights reserved." />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="google" content="notranslate" />
+    <meta name="google" content="nositelinkssearchbox" />
+
+    <link rel="icon" type="image/png" href="static/icon.png" />
+    <link rel="apple-touch-icon" href="static/icon.png" />
+    <link rel="stylesheet" href="static/style.css" />
+  </head>
+
+  <body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="container">
+      <div class="card" id="formCard">
+        <header>
+          <h1>Account Deletion</h1>
+          <p class="subtitle">
+            Please select your application to view its specific account and data
+            deletion instructions.
+          </p>
+        </header>
+
+        <form id="deletionForm">
+          <div class="form-group">
+            <label for="application">Select Your Application</label>
+            <select id="application" required>
+              <option value="" disabled selected>Select from list</option>
+              <option value="clementines_cafe">Clementine's Cafe</option>
+              <option value="daret">Daret - دارت</option>
+              <option value="test_for_me">Test For Me</option>
+              <option value="carnet_credit">كناش الكريدي</option>
+              <option value="khataba">الخطابة</option>
+            </select>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" id="confirmDeletion" required />
+            <label for="confirmDeletion">
+              I understand that I am being redirected to specific instructions
+              for my selected app.
+            </label>
+          </div>
+
+          <button type="submit" id="submitBtn">
+            View Deletion Instructions
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="static/script.js"></script>
+  </body>
+</html>

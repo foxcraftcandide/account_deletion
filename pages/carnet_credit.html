@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>حذف الحساب | كناش الكريدي</title>
+    <meta
+      name="description"
+      content="طلب حذف الحساب والبيانات لتطبيق كناش الكريدي. المعلومات المتعلقة بعملية الحذف وسياسة الاحتفاظ بالبيانات."
+    />
+    <meta name="author" content="Fouad El Azbi" />
+    <meta
+      name="keywords"
+      content="حذف الحساب, كناش الكريدي, حذف البيانات, سياسة الخصوصية"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#2E7D32" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary-green: #2e7d32;
+        --secondary-green: #006c48;
+        --dark-blue: #001e40;
+        --bg-light: #f8fafb;
+        --white: #ffffff;
+        --text-main: #333333;
+        --text-muted: #666666;
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Cairo", sans-serif;
+      }
+
+      body {
+        background-color: var(--bg-light);
+        color: var(--text-main);
+        line-height: 1.6;
+        overflow-x: hidden;
+        background: linear-gradient(135deg, #f8fafb 0%, #e8f5e9 100%);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* language toggle */
+      .lang-switch {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 100;
+      }
+
+      [dir="ltr"] .lang-switch {
+        left: auto;
+        right: 20px;
+      }
+
+      .btn-lang {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--dark-blue);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+      }
+
+      .btn-lang:hover {
+        background: var(--white);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .container {
+        width: 100%;
+        max-width: 800px;
+        padding: 40px 20px;
+        margin-top: 60px;
+        animation: fadeIn 0.8s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .logo-circle {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-green),
+          var(--secondary-green)
+        );
+        border-radius: 22px;
+        margin: 0 auto 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 25px rgba(46, 125, 50, 0.3);
+        transform: rotate(-5deg);
+        transition: var(--transition);
+      }
+
+      .logo-circle:hover {
+        transform: rotate(0deg) scale(1.05);
+      }
+
+      .logo-text {
+        color: var(--white);
+        font-size: 32px;
+        font-weight: 800;
+      }
+
+      h1 {
+        color: var(--dark-blue);
+        font-weight: 800;
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        color: var(--secondary-green);
+        font-weight: 600;
+        font-size: 18px;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 20px;
+        color: var(--dark-blue);
+        font-weight: 700;
+        font-size: 20px;
+      }
+
+      .info-block {
+        margin-bottom: 25px;
+      }
+
+      .info-block p {
+        margin-bottom: 15px;
+        font-size: 16px;
+        color: var(--text-main);
+        text-align: justify;
+      }
+
+      .highlight-box {
+        background: rgba(46, 125, 50, 0.05);
+        border-right: 4px solid var(--primary-green);
+        padding: 20px;
+        border-radius: 8px 16px 16px 8px;
+        margin: 20px 0;
+      }
+
+      [dir="ltr"] .highlight-box {
+        border-right: none;
+        border-left: 4px solid var(--primary-green);
+        border-radius: 16px 8px 8px 16px;
+      }
+
+      .highlight-box h3 {
+        color: var(--primary-green);
+        font-size: 17px;
+        margin-bottom: 8px;
+        font-weight: 700;
+      }
+
+      .steps {
+        list-style: none;
+        margin: 20px 0;
+      }
+
+      .step-item {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+        align-items: flex-start;
+      }
+
+      .step-number {
+        width: 28px;
+        height: 28px;
+        background: var(--secondary-green);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 14px;
+        font-weight: bold;
+        margin-top: 3px;
+      }
+
+      .contact-btn {
+        display: inline-block;
+        background: var(--dark-blue);
+        color: var(--white);
+        text-decoration: none;
+        padding: 14px 32px;
+        border-radius: 12px;
+        font-weight: 700;
+        transition: var(--transition);
+        margin-top: 20px;
+        text-align: center;
+        width: 100%;
+      }
+
+      .contact-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 30, 64, 0.2);
+        background: #002a5a;
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px 0;
+        color: var(--text-muted);
+        font-size: 14px;
+      }
+
+      /* Support for LTR class */
+      .en-content {
+        display: none;
+      }
+      .ar-content {
+        display: block;
+      }
+
+      html[lang="en"] .en-content {
+        display: block;
+      }
+      html[lang="en"] .ar-content {
+        display: none;
+      }
+      html[lang="en"] {
+        dir: ltr;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 20px 15px;
+          margin-top: 40px;
+        }
+        .card {
+          padding: 25px;
+        }
+        h1 {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="lang-switch">
+      <button class="btn-lang" id="toggleLang">English</button>
+    </div>
+
+    <div class="container" id="content-area">
+      <header>
+        <div class="logo-circle">
+          <span class="logo-text">C</span>
+        </div>
+        <div class="ar-content">
+          <h1>حذف الحساب والبيانات</h1>
+          <p class="subtitle">تطبيق كناش الكريدي</p>
+        </div>
+        <div class="en-content">
+          <h1>Account & Data Deletion</h1>
+          <p class="subtitle">Carnet Credit App</p>
+        </div>
+      </header>
+
+      <div class="card">
+        <!-- ARABIC CONTENT -->
+        <div class="ar-content">
+          <div class="info-block">
+            <p>
+              نحن في <strong>كناش الكريدي</strong> نلتزم بخصوصيتك وبتحكمك الكامل
+              في بياناتك. تتيح لك هذه الصفحة فهم كيفية حذف حسابك وما سيحدث
+              لبياناتك بعد ذلك.
+            </p>
+          </div>
+
+          <div class="section-title">كيفية حذف الحساب</div>
+          <div class="info-block">
+            <p>
+              يمكنك طلب حذف حسابك مباشرة من داخل التطبيق باتباع الخطوات التالية:
+            </p>
+            <ul class="steps">
+              <li class="step-item">
+                <span class="step-number">١</span> افتح تطبيق كناش الكريدي وسجل
+                الدخول.
+              </li>
+              <li class="step-item">
+                <span class="step-number">٢</span> انتقل إلى شاشة "الملف
+                الشخصي".
+              </li>
+              <li class="step-item">
+                <span class="step-number">٣</span> اضغط على خيار "حذف الحساب
+                والبيانات".
+              </li>
+              <li class="step-item">
+                <span class="step-number">٤</span> قم بتأكيد العملية. سيتم تسجيل
+                خروجك فوراً وحذف بياناتك الشخصية.
+              </li>
+            </ul>
+          </div>
+
+          <div class="section-title">ما هي البيانات التي سيتم حذفها؟</div>
+          <div class="info-block">
+            <p>عند تأكيد الحذف، سنقوم بمسح:</p>
+            <ul class="steps">
+              <li class="step-item">
+                <span class="step-number">✓</span> بيانات الاعتماد (البريد
+                الإلكتروني، كلمة المرور).
+              </li>
+              <li class="step-item">
+                <span class="step-number">✓</span> معلومات الملف الشخصي (الاسم،
+                اللقب، رقم الهاتف).
+              </li>
+              <li class="step-item">
+                <span class="step-number">✓</span> روابطك مع المحلات التجارية.
+              </li>
+            </ul>
+          </div>
+
+          <div class="highlight-box">
+            <h3>سياسة الاحتفاظ بالبيانات</h3>
+            <p>
+              لضمان حقوق التجار ودقة السجلات المالية،
+              <strong
+                >لن يتم حذف سجلات العمليات التجارية (الديون والمدفوعات)</strong
+              >
+              من "كناش" التاجر. ستظل هذه البيانات موجودة كجزء من سجلات المحل
+              لأغراض المحاسبة، ولكن سيتم فصلها تماماً عن هويتك الشخصية ولن تعود
+              قابلة للربط بحسابك المحذوف.
+            </p>
+          </div>
+
+          <div class="info-block">
+            <p>
+              إذا واجهت مشكلة في الوصول إلى التطبيق أو كنت ترغب في طلب الحذف
+              يدوياً، يرجى مراسلتنا عبر البريد الإلكتروني:
+            </p>
+            <a href="mailto:f36823.support@gmail.com" class="contact-btn"
+              >طلب حذف الحساب عبر البريد</a
+            >
+          </div>
+        </div>
+
+        <!-- ENGLISH CONTENT -->
+        <div class="en-content">
+          <div class="info-block">
+            <p>
+              At <strong>Carnet Credit</strong>, we are committed to your
+              privacy and full control over your data. This page helps you
+              understand how to delete your account and what happens to your
+              data.
+            </p>
+          </div>
+
+          <div class="section-title">How to Delete Your Account</div>
+          <div class="info-block">
+            <p>You can request account deletion directly within the app:</p>
+            <ul class="steps">
+              <li class="step-item">
+                <span class="step-number">1</span> Open the Carnet Credit app
+                and log in.
+              </li>
+              <li class="step-item">
+                <span class="step-number">2</span> Go to the "Profile" screen.
+              </li>
+              <li class="step-item">
+                <span class="step-number">3</span> Tap on "Delete Account and
+                Data".
+              </li>
+              <li class="step-item">
+                <span class="step-number">4</span> Confirm the action. Your
+                personal data will be removed immediately.
+              </li>
+            </ul>
+          </div>
+
+          <div class="section-title">What data is deleted?</div>
+          <div class="info-block">
+            <p>Upon confirmation, we will permanently erase:</p>
+            <ul class="steps">
+              <li class="step-item">
+                <span class="step-number">✓</span> Authentication details
+                (email, password records).
+              </li>
+              <li class="step-item">
+                <span class="step-number">✓</span> Profile Information (Name,
+                Title, Phone Number).
+              </li>
+              <li class="step-item">
+                <span class="step-number">✓</span> Your active links to merchant
+                accounts.
+              </li>
+            </ul>
+          </div>
+
+          <div class="highlight-box">
+            <h3>Data Retention Policy</h3>
+            <p>
+              To ensure merchant rights and financial ledger accuracy,
+              <strong
+                >transaction records (credit and payments) will not be
+                deleted</strong
+              >
+              from the merchant's ledger. This historical data remains part of
+              the shop's records for accounting purposes but will be permanently
+              anonymized and decoupled from your personal identity.
+            </p>
+          </div>
+
+          <div class="info-block">
+            <p>
+              If you cannot access the app or wish to request manual deletion,
+              please email us:
+            </p>
+            <a href="mailto:f36823.support@gmail.com" class="contact-btn"
+              >Request Deletion via Email</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="ar-content">
+          ©
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          تطبيق كناش الكريدي. جميع الحقوق محفوظة.
+        </div>
+        <div class="en-content">
+          ©
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          Carnet Credit App. All rights reserved.
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const btn = document.getElementById("toggleLang");
+      const html = document.documentElement;
+
+      btn.addEventListener("click", () => {
+        if (html.getAttribute("lang") === "ar") {
+          html.setAttribute("lang", "en");
+          html.setAttribute("dir", "ltr");
+          btn.textContent = "العربية";
+        } else {
+          html.setAttribute("lang", "ar");
+          html.setAttribute("dir", "rtl");
+          btn.textContent = "English";
+        }
+      });
+    </script>
+  </body>
+</html>
